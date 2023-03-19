@@ -3,16 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/stepperActivity">
+    app:startDestination="@id/stepperFrag2">
 
-    <activity
-        android:id="@+id/stepperActivity"
-        android:name="com.example.exerciseapp_jm.StepperActivity"
-        android:label="step_screen"
+    <fragment
+        android:id="@+id/stepperFrag2"
+        android:name="com.example.exerciseapp_jm.StepperFrag"
+        android:label="step_screen_frag"
         tools:layout="@layout/step_screen_frag" />
-    <activity
-        android:id="@+id/calenderScreen"
-        android:name="com.example.exerciseapp_jm.CalenderScreen"
-        android:label="calender_screen"
-        tools:layout="@layout/calender_screen_frag" />
 </navigation>

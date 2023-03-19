@@ -2,24 +2,22 @@ package com.example.exerciseapp_jm;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class StepperActivity extends AppCompatActivity implements SensorEventListener {
     private SensorManager sensorManager;
     private boolean running = false;
+    TextView tv_stepsTaken = findViewById(R.id.currentsteps);
+    TextView calSpent = findViewById(R.id.calories);
+    TextView distTravelled = findViewById(R.id.distance);
     private float totalSteps = 0f;
     private float previousTotalSteps = 0f;
 
@@ -31,10 +29,13 @@ public class StepperActivity extends AppCompatActivity implements SensorEventLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step_main);
 
-        loadData();
-        resetSteps();
-        calcDistance();
+            loadData();
+            resetSteps();
+            calcDistance();
 
+            tv_stepsTaken.setText("0/10,000");
+            calSpent.setText("0 calories");
+            distTravelled.setText("0 metres");
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
     }
 
@@ -54,17 +55,15 @@ public class StepperActivity extends AppCompatActivity implements SensorEventLis
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        TextView tv_stepsTaken = findViewById(R.id.currentsteps);
-        TextView calSpent = findViewById(R.id.calories);
-
         if (running) {
             totalSteps = event.values[0];
             int currentSteps = (int) (totalSteps - previousTotalSteps);
             double calories = calcCalories();
+            double dist = calcDistance();
 
-            calSpent.setText(String.valueOf(calories) + " calories");
-            tv_stepsTaken.setText(String.valueOf(currentSteps) + "/10,000");
-
+            calSpent.setText(calories + " calories");
+            tv_stepsTaken.setText(currentSteps + "/10,000");
+            distTravelled.setText(dist + "metres");
         }
     }
 
@@ -103,30 +102,11 @@ public class StepperActivity extends AppCompatActivity implements SensorEventLis
         return cal;
     }
 
-    public void calcDistance(){
-
-        LocationListener locationListener = location -> {
-            float distance = 0;
-            Location previousLocation = null;
-
-            for(;;) {
-                if (previousLocation != null) {
-                    distance = previousLocation.distanceTo(location);
-                    float totalDistance = +distance;
-                    previousLocation = location;
-                    TextView distanceText = findViewById(R.id.distance);
-                    distanceText.setText(totalDistance + "meters");
-                } else {
-                    previousLocation = location;
-                }
-            }
-        };
-
-        LocationManager locationmanager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (checkSelfPermission(Manifest.permission.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION) == PackageManager.PERMISSION_GRANTED) {
-            locationmanager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-        }
+    public double calcDistance(){
+        double distance = 0;
+        return distance;
     }
+
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {

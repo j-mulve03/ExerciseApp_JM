@@ -10,14 +10,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CalenderScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CalenderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String[] activities = {"act1", "act2", "act3"};
     String[] hours = new String[24];
     String[] minutes = new String[60];
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calender_screen_frag);
         Spinner actspin = (Spinner) findViewById(R.id.activityspinner);

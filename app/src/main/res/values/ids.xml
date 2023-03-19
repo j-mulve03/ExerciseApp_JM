@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="tv_stepsTaken" type="id" />
+    <item name="calSpent" type = "id"/>
+    <item name="distTravelled" type = "id"/>
 </resources>
