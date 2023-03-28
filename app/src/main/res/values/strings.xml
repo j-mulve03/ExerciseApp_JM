@@ -8,6 +8,7 @@
     <string name="distanceNum">0 metres</string>
     <string name="personalBest">Personal</string>
     <string name="stepsLeft">You have # steps left.</string>
+    <string name="confirm">Confirm</string>
     <string-array name="default_exercises">
         <item>1</item>
         <item>2</item>

@@ -3,4 +3,13 @@
     <item name="tv_stepsTaken" type="id" />
     <item name="calSpent" type = "id"/>
     <item name="distTravelled" type = "id"/>
+    <item name="calories" type="id"/>
+    <item name="distance" type="id"/>
+    <item name="flame_logo" type="id"/>
+    <item name="distance_logo" type="id"/>
+    <item name="personal" type="id"/>
+    <item name="stepsLeft" type="id"/>
+    <item name="activityspinner" type="id"/>
+    <item name="hourspinner" type="id"/>
+    <item name="minspinner" type="id"/>
 </resources>
