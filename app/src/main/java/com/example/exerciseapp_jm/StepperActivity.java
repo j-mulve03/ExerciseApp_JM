@@ -37,8 +37,7 @@ public class StepperActivity extends AppCompatActivity implements SensorEventLis
         running = true;
         back = findViewById(R.id.backButton);
 
-//            loadData();
-//            resetSteps();
+            loadData();
 //            calcDistance();
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -80,18 +79,6 @@ public class StepperActivity extends AppCompatActivity implements SensorEventLis
             tv_stepsTaken.setText(currentSteps + "/10,000");
 //            distTravelled.setText(dist + "metres");
         }
-    }
-
-    public void resetSteps() {
-        TextView tv_stepsTaken = findViewById(R.id.tv_stepsTaken);
-        tv_stepsTaken.setOnClickListener(v -> Toast.makeText(this, "Long tap to reset steps", Toast.LENGTH_SHORT).show());
-
-        tv_stepsTaken.setOnLongClickListener(v -> {
-            previousTotalSteps = totalSteps;
-            tv_stepsTaken.setText("0");
-            saveData();
-            return true;
-        });
     }
 
     private void saveData() {
