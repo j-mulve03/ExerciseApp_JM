@@ -89,6 +89,7 @@ public class StepperActivity extends AppCompatActivity implements SensorEventLis
         editor.apply();
     }
 
+
     private void loadData() {
         Context context = getApplicationContext();
         SharedPreferences sharedPreferences = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
