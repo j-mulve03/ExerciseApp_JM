@@ -87,6 +87,7 @@ public class StepperActivity extends AppCompatActivity implements SensorEventLis
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat("key1", previousTotalSteps);
         editor.apply();
+
     }
 
     private void loadData() {
