@@ -9,11 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.navigation.NavigationBarView;
 
 public class CalenderActivity extends AppCompatActivity {
 
@@ -43,49 +41,49 @@ public class CalenderActivity extends AppCompatActivity {
         hourSpin = findViewById(R.id.hourspinner);
         minSpin = findViewById(R.id.minspinner);
 
-//        actSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(), activities[position], Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+        actSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), activities[position], Toast.LENGTH_LONG).show();
+            }
 
-//        hourSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),hours[position], Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-//        minSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),minutes[position],Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+            }
+        });
 
-//        ArrayAdapter aAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,activities);
-//        aAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        ArrayAdapter hourAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,hours);
-//        hourAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//
-//        ArrayAdapter minAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,minutes);
-//        minAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hourSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),hours[position], Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        minSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),minutes[position],Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ArrayAdapter aAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,activities);
+        aAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter hourAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,hours);
+        hourAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter minAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,minutes);
+        minAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
     }
 
