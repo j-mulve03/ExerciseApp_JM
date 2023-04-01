@@ -19,7 +19,7 @@ public class CalenderActivity extends AppCompatActivity {
     Spinner actSpin;
     Spinner minSpin;
     Spinner hourSpin;
-    String[] activities = {"act1", "act2", "act3"};
+    String[] activities = {"Choose activity to schedule..", "act1", "act2", "act3"};
     String[] hours = new String[24];
     String[] minutes = new String[60];
 
@@ -31,10 +31,18 @@ public class CalenderActivity extends AppCompatActivity {
         //Screen Switch Code
         back = findViewById(R.id.backButton);
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(CalenderActivity.this, StepperActivity.class);
+            Intent intentHome = new Intent(CalenderActivity.this, HomeActivity.class);
 
-            startActivity(intent);
+            startActivity(intentHome);
         });
+
+
+        for (int i = 0; i < 24; i++) {
+            hours[i] = String.format("%02d", i+1);
+        }
+        for (int i = 0; i < 60; i++) {
+            minutes[i] = String.format("%02d", i+1);
+        }
 
         //Spinner Code
         actSpin = findViewById(R.id.activityspinner);
@@ -44,7 +52,7 @@ public class CalenderActivity extends AppCompatActivity {
         actSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), activities[position], Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), activities[position], Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -56,7 +64,7 @@ public class CalenderActivity extends AppCompatActivity {
         hourSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),hours[position], Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),hours[position], Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -68,7 +76,7 @@ public class CalenderActivity extends AppCompatActivity {
         minSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),minutes[position],Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),minutes[position],Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -77,14 +85,17 @@ public class CalenderActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter aAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,activities);
+        ArrayAdapter<String> aAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, activities);
         aAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ArrayAdapter hourAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,hours);
+        actSpin.setAdapter(aAdapter);
+
+        ArrayAdapter<String> hourAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,hours);
         hourAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hourSpin.setAdapter(hourAdapter);
 
-        ArrayAdapter minAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,minutes);
+        ArrayAdapter<String> minAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,minutes);
         minAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
+        minSpin.setAdapter(minAdapter);
     }
 
     @Override

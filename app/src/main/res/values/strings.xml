@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">ExerciseApp_JM</string>
     <string name="back">Back</string>
+    <string name="metres">metres</string>
+    <string name="calories">calories</string>
     <string name="stepper_activity">StepperActivity</string>
     <string name="calender_screen">CalenderScreen</string>
     <string name="currentSteps">0/10,000</string>
     <string name="caloriesNum">0 calories</string>
     <string name="distanceNum">0 metres</string>
-    <string name="personalBest">Personal</string>
+    <string name="personalBest">Personal Best Step Score:</string>
     <string name="stepsLeft">You have # steps left.</string>
     <string name="confirm">Confirm</string>
     <string-array name="default_exercises">
@@ -15,4 +17,8 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+    <string name="choose_activity">Choose activity:</string>
+    <string name="hour_choose">Schedule Time (Hour):</string>
+    <string name="minute_choose">Schedule Time (Minute):</string>
+    <string name="ideal_steps">/10,000</string>
 </resources>
